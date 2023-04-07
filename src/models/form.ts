@@ -10,8 +10,9 @@ const FormSchema = new mongoose.Schema({
 
 // Define the document interface
 export interface FormDocument extends mongoose.Document {
+	_id: mongoose.Schema.Types.ObjectId;
 	name: string;
-	elements: FormElement[];
+	elements: FormElement[][];
 	createdAt?: Date;
 }
 
