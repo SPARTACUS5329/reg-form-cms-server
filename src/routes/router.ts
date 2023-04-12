@@ -1,11 +1,11 @@
 import express, { Router } from "express";
-import { createForm, foo, getForm } from "../controllers/FormController";
+import { createForm, foo, getForms } from "../controllers/FormController";
 import { register } from "../controllers/RegistrationController";
 
 const router: Router = express.Router();
 
 router.get("/", foo);
-router.get("/form", getForm);
+router.post("/forms", getForms);
 router.post("/create-form", createForm);
 
 router.post("/register/:slug", register);

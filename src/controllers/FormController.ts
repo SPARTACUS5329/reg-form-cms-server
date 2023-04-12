@@ -5,12 +5,11 @@ export const foo = (req: Request, res: Response) => {
 	res.status(200).send("It is working dumbass");
 };
 
-export const getForm = async (req: Request, res: Response) => {
+export const getForms = async (req: Request, res: Response) => {
 	try {
-		const { name } = req.body;
-		const form = await Form.findOne({ name });
-		if (!form) return res.status(400).send("Form not found");
-		return res.status(200).send(form);
+		const { filters } = req.body;
+		const forms = await Form.find(filters).select("-__v -_id -createdAt");
+		return res.status(200).send(forms);
 	} catch (error: any) {
 		console.error(error);
 		return res.status(500).send(error.message);
