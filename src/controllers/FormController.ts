@@ -18,10 +18,9 @@ export const getForms = async (req: Request, res: Response) => {
 
 export const createForm = async (req: Request, res: Response) => {
 	try {
-		console.log(req.body);
 		const form = new Form(req.body);
 		await form.save();
-		return res.status(200).send("Success");
+		return res.status(200).send("SUCCESS");
 	} catch (error: any) {
 		console.error(error);
 		return res.status(500).send(error.message);
