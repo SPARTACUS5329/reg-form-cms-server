@@ -4,6 +4,7 @@ import { Registration } from "../models/registration";
 import { cleanDetails } from "../utils/cleanDetails";
 import getFormFields from "../utils/getFormFields";
 import CustomError from "../utils/CustomError";
+import { ElementType } from "../utils/types";
 
 export const register = async (req: Request, res: Response) => {
 	try {
@@ -18,13 +19,18 @@ export const register = async (req: Request, res: Response) => {
 
 		const fieldsReceived = Object.keys(camelCasedDetails);
 
-		if (fieldsReceived.length !== formFields.length)
+		if (fieldsReceived.length !== Object.keys(formFields).length)
 			return res.status(400).send(new CustomError("Form fields don't match", 418));
 
-		for (const field of formFields) {
+		for (const field of Object.keys(formFields)) {
 			if (!fieldsReceived.includes(field))
 				return res.status(400).send(new CustomError("Form fields don't match", 418));
 		}
+
+		Object.keys(camelCasedDetails).forEach((field) => {
+			if (formFields[field].elementType === ElementType["MULTI_SELECT"])
+				camelCasedDetails[field] = Object.values(camelCasedDetails[field]);
+		});
 
 		const registration = new Registration({
 			eventName: slug,

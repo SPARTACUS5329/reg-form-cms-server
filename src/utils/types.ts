@@ -3,6 +3,7 @@ export enum ElementType {
 	RADIO = "RADIO",
 	CHECKBOX = "CHECKBOX",
 	DROPDOWN = "DROPDOWN",
+	MULTI_SELECT = "MULTI_SELECT",
 }
 
 export enum Width {
