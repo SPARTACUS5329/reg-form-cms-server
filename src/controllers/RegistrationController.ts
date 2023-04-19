@@ -6,6 +6,19 @@ import getFormFields from "../utils/getFormFields";
 import CustomError from "../utils/CustomError";
 import { ElementType } from "../utils/types";
 
+export const getRegistrations = async (req: Request, res: Response) => {
+	try {
+		const { slug } = req.params;
+		const registrations = await Registration.find({ eventName: slug }).select(
+			"-__v -_id -form"
+		);
+		res.status(200).send(registrations);
+	} catch (error: any) {
+		console.error(error);
+		res.status(500).send(error.message);
+	}
+};
+
 export const register = async (req: Request, res: Response) => {
 	try {
 		const { slug } = req.params;
