@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-import { FormElement } from "../utils/types";
+import { FormRow } from "../utils/types";
 
 // Define the schema
 const FormSchema = new mongoose.Schema({
 	name: { type: String, required: true },
-	elements: { type: mongoose.Schema.Types.Mixed, required: true },
+	rows: { type: mongoose.Schema.Types.Mixed, required: true },
 	createdAt: { type: Date, default: Date.now },
 });
 
@@ -12,7 +12,7 @@ const FormSchema = new mongoose.Schema({
 export interface FormDocument extends mongoose.Document {
 	_id: mongoose.Schema.Types.ObjectId;
 	name: string;
-	elements: FormElement[][];
+	rows: FormRow[];
 	createdAt?: Date;
 }
 

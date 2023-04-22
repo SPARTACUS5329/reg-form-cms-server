@@ -19,3 +19,8 @@ export interface FormElement {
 	validation?: any;
 	extraData?: any;
 }
+
+export interface FormRow {
+	rowID: number;
+	elements: FormElement[];
+}

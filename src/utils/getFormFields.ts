@@ -1,14 +1,14 @@
 import { textToCamelCase } from "./cleanDetails";
-import { FormElement } from "./types";
+import { FormElement, FormRow } from "./types";
 
 interface FormFields {
 	[key: string]: FormElement;
 }
 
-const getFormFields = (form: FormElement[][]): FormFields => {
+const getFormFields = (form: FormRow[]): FormFields => {
 	const temp: FormFields = {};
 	for (const row of form) {
-		for (const element of row) {
+		for (const element of row.elements) {
 			temp[textToCamelCase(element.name)] = element;
 		}
 	}
