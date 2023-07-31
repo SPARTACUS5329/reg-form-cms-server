@@ -763,6 +763,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^16.3.1":
+  version: 16.3.1
+  resolution: "dotenv@npm:16.3.1"
+  checksum: 10accb903da092a279d5a952c54290c0980c1c3ab0767b0dbc3013526593ebc98944e26352c9bef1d0fe93589a7c78e4810daae1bd53c7432c69997b17de0b3d
+  languageName: node
+  linkType: hard
+
 "ee-first@npm:1.1.1":
   version: 1.1.1
   resolution: "ee-first@npm:1.1.1"
@@ -1787,6 +1794,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^5.57.1"
     body-parser: "npm:^1.20.2"
     cors: "npm:^2.8.5"
+    dotenv: "npm:^16.3.1"
     eslint: "npm:^8.37.0"
     express: "npm:^4.18.2"
     lodash: "npm:^4.17.21"
