@@ -8,6 +8,6 @@
     "moduleResolution": "node",
     "sourceMap": true
   },
-  "include": [".env", "src/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
