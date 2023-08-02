@@ -12,7 +12,7 @@ export const login = async (req: Request, res: Response) => {
 		const isPasswordCorrect = await bcrypt.compare(password, user.password);
 		if (!isPasswordCorrect)
 			return res.status(400).send(new CustomError("Incorrect password", 418));
-		return res.status(200).send({ user, message: Responses["SUCCESS"] });
+		return res.status(200).send({ user: user.name, message: Responses["SUCCESS"] });
 	} catch (error: any) {
 		console.error(error);
 		return res.status(500).send(error.message);

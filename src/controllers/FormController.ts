@@ -7,7 +7,7 @@ export const foo = (req: Request, res: Response) => {
 
 export const getForms = async (req: Request, res: Response) => {
 	try {
-		const { filters } = req.body;
+		const { ...filters } = req.body;
 		const forms = await Form.find(filters).select("-__v -_id");
 		return res.status(200).send(forms);
 	} catch (error: any) {

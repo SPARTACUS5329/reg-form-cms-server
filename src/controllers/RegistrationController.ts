@@ -28,11 +28,9 @@ export const register = async (req: Request, res: Response) => {
 		if (!form) return res.status(400).send("This event does not exist");
 
 		const camelCasedDetails = cleanDetails(details); // The keys can be "First Name", "Last Name" ...
-		const formFields = getFormFields(form.rows);
-		console.log(formFields);
+		const formFields = getFormFields(form.steps);
 
 		const fieldsReceived = Object.keys(camelCasedDetails);
-		console.log(fieldsReceived);
 
 		if (fieldsReceived.length !== Object.keys(formFields).length)
 			return res.status(400).send(new CustomError("Form fields don't match", 418));
