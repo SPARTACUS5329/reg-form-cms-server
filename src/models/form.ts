@@ -4,7 +4,8 @@ import { FormRow } from "../utils/types";
 // Define the schema
 const FormSchema = new mongoose.Schema({
 	name: { type: String, required: true },
-	rows: { type: mongoose.Schema.Types.Mixed, required: true },
+	steps: { type: mongoose.Schema.Types.Mixed, required: true },
+	user: String,
 	createdAt: { type: Date, default: Date.now },
 });
 
@@ -12,7 +13,8 @@ const FormSchema = new mongoose.Schema({
 export interface FormDocument extends mongoose.Document {
 	_id: mongoose.Schema.Types.ObjectId;
 	name: string;
-	rows: FormRow[];
+	steps: FormRow[][];
+	user: string;
 	createdAt?: Date;
 }
 

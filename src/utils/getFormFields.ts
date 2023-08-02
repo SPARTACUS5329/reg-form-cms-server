@@ -5,11 +5,13 @@ interface FormFields {
 	[key: string]: FormElement;
 }
 
-const getFormFields = (form: FormRow[]): FormFields => {
+const getFormFields = (form: FormRow[][]): FormFields => {
 	const temp: FormFields = {};
-	for (const row of form) {
-		for (const element of row.elements) {
-			temp[textToCamelCase(element.name)] = element;
+	for (const step of form) {
+		for (const row of step) {
+			for (const element of row.elements) {
+				temp[textToCamelCase(element.name)] = element;
+			}
 		}
 	}
 	return temp;
